@@ -14,17 +14,11 @@ const{cartRouter}=require("./routes/cartRouter.js")
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+
 
 app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true // If using cookies or auth headers
+    origin:"*",
+    credentials: true;
 }));
 app.use( "/images",express.static("uploads"))
 
